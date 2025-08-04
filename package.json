@@ -1,0 +1,20 @@
+{
+  "name": "prevencion2-backend",
+  "version": "1.0.0",
+  "description": "Backend API para Prevención 2 (Express + Supabase)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "@supabase/supabase-js": "^2.39.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
