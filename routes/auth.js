@@ -53,8 +53,11 @@ router.post('/login', async (req, res) => {
 
 // Endpoint para iniciar OAuth con Google
 router.get('/oauth/google', (req, res) => {
-  // Construir la URL de inicio de sesión de Supabase para Google
-  const redirectTo = encodeURIComponent('https://prevencion2-frontend.netlify.app/dashboard.html'); // Cambia por tu URL final de dashboard
+  // Permitir pruebas locales con ?local=1
+  const isLocal = req.query.local === '1';
+  const redirectTo = isLocal
+    ? encodeURIComponent('http://localhost:5500/dashboard.html')
+    : encodeURIComponent('https://prevencion2-frontend.netlify.app/dashboard.html');
   const supabaseUrl = process.env.SUPABASE_URL;
   const url = `${supabaseUrl}/auth/v1/authorize?provider=google&redirect_to=${redirectTo}`;
   res.redirect(url);
